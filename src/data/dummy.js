@@ -479,12 +479,21 @@ export const links = [
       },
     ],
   },
+  {
+    title: 'Login',
+    links: [
+      {
+        name: 'login',
+        icon: <AiOutlineCode />,
+      },
+    ],
+  },
 
   {
     title: 'Registration',
     links: [
       {
-        name: 'login',
+        name: 'shop',
         icon: <AiOutlineShop />,
       },
     ],
