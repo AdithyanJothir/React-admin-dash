@@ -484,7 +484,7 @@ export const links = [
     title: 'Registration',
     links: [
       {
-        name: 'shop',
+        name: 'login',
         icon: <AiOutlineShop />,
       },
     ],

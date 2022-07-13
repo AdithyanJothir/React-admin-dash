@@ -4,9 +4,11 @@ import {FiSettings} from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import {Navbar,Sidebar,Footer,ThemeSettings} from './components'
-import {Employees,Calendar,Customers} from './pages'
+import {Employees,Calendar,Customers,Login} from './pages'
 import './App.css';
 import {useState, useStateContext} from './context/ContextProvider';
+import { AuthProvider } from './context/AuthContext';
+
 
 export const App = () => {
     const { activeMenu } = useStateContext();
@@ -41,6 +43,7 @@ export const App = () => {
         <div>
             <Routes>
                 <Route path="/" element={<Employees />}/>
+                <Route path="/login" element={<Login />}/>
                 {/* <Route path="/registration" element={<Registration />}/>
                 <Route path="/assignment" element={<Assignment />}/>
                 <Route path="/views" element={<Views />}/>
