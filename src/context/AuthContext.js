@@ -1,13 +1,14 @@
 import React from 'react';
 import {createContext,useContext,useState} from 'react';
 import axios from 'axios';
+import { useCookieState } from "use-cookie-state";
 
 const AuthContext = createContext();
 const API_LOGIN_URL = "http://adityanjothir.pythonanywhere.com/api/token/";
 const API_REFRESH_URL = "http://adityanjothir.pythonanywhere.com/api/token/refresh";
 export const AuthProvider = ({children}) => {
-    const [accessToken,setaccessToken] = useState("");
-    const [refreshToken,setrefreshToken] = useState("");
+    const [accessToken,setaccessToken] = useCookieState("access","");
+    const [refreshToken,setrefreshToken] = useCookieState("refresh","");
 
     const authLogin = (user,pass) => {
         axios
