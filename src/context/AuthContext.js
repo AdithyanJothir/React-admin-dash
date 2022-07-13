@@ -7,20 +7,20 @@ const AuthContext = createContext();
 const API_LOGIN_URL = "http://adityanjothir.pythonanywhere.com/api/token/";
 const API_REFRESH_URL = "http://adityanjothir.pythonanywhere.com/api/token/refresh";
 export const AuthProvider = ({children}) => {
-    const [accessToken,setaccessToken] = useCookieState("access","");
-    const [refreshToken,setrefreshToken] = useCookieState("refresh","");
+    const [accessToken,setaccessToken] = useCookieState("access");
+    const [refreshToken,setrefreshToken] = useCookieState("refresh");
 
-    const authLogin = (user,pass) => {
-        axios
+    const authLogin = async (user,pass) => {
+        await axios
             .post(API_LOGIN_URL,{
                 username: user,
                 password: pass
             }).then(response => {
-                if (response.data && response.data.access){
-                    setaccessToken(response.data.access);
-                    setrefreshToken(response.data.refresh)
-                    console.log(JSON.parse(response.data))
-                }
+                setaccessToken(response.data.access);
+                console.log(response.data.access);
+            })
+            .catch(err=> {
+                console.log(err);
             })
     }
 
